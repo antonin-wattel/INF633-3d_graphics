@@ -154,12 +154,13 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         // The ray information gives you where you hit and the normal of the terrain in that location.
         if (Physics.Raycast(raycastOrigin, -transform.up, out RaycastHit hit, Mathf.Infinity))
         {
-            //if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            //{
+            //comment this if not working
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
                 posHit = hit.point;
                 distanceHit = hit.distance;
                 normalTerrain = hit.normal;
-            //}
+            }
         }
 
         /*
@@ -276,7 +277,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontLeftFoot.MoveLeg();
+                print("front left foot moved..");
                 backRightFoot.MoveLeg();
+                print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
@@ -287,7 +290,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontRightFoot.MoveLeg();
+                print("front left foot moved..");
                 backLeftFoot.MoveLeg();
+                print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
