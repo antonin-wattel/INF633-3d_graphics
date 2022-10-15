@@ -23,7 +23,66 @@ public class FootStepper : MonoBehaviour
     void Awake()
     {
         // We put the steppers at the top of the hierarchy, to avoid other influences from the parent transforms and to see them better.
+        // Transform new_tranform = Instantiate(transform);
+        // new_tranform.parent = null;
+        
+        // transform.SetParent(null);
+        // create a duplicate of transform (same but different name and set it with no parents)
+        // Transform new_transform = Instantiate(transform);    
+        // set the new transform as the parent of the original transform
+        // new_transform.SetParent(null);
+        // delete og game object of transform
+        // Destroy(transform.gameObject);
+
+        // transform = 
+        //unpack the transform
         transform.SetParent(null);
+
+        //duplicate the transform game object
+        //now set the transform game object as the new one
+        
+        
+
+
+
+
+        // transform.SetParent(transform.parent.parent.parent.parent);//pb this does not move and IK is still shit
+        // transform.SetParent(homeTransform.parent);
+
+        // idea: set a common parent to transform.parent.parent and transform
+
+        //create new parent gameobject
+        // GameObject newParent = new GameObject("CommonParent");
+
+        // PROBLEM: THIS IS NOT COOL WHEN WE WANT TO HAVE MANY QUADRUPEDS
+        // transform.SetParent(transform.parent.parent); //-> not enough (still fucks up the IK :/)
+        // hack: just change the name of 
+        // if find a different game object in the scene that shares the same name, change the name
+        
+        // print("transform.name: "+transform.name);
+        
+        // //make a copy of the name
+
+        // string name_copy = transform.name;
+        // transform.name = name_copy + "_";
+
+        // // if we find a game object with the same name, change the name in the hierarchy
+        // if (GameObject.Find(name_copy) != null)
+        // {
+        //     print("found a game object with the same name: change name");
+        //     int i=0;
+        //     while (GameObject.Find(name_copy) != null){
+        //         name_copy = transform.name + i;
+        //         transform.name = name_copy + "_";
+        //     }
+        // }
+        // transform.SetParent(null);
+        
+
+        // TODO: avoid the influence of the target. how ? 
+        // just find a new name ?
+        // make it belong to some specific layer ?
+
 
         // Adapt the legs just after starting the script.
         MoveLeg();
@@ -168,8 +227,6 @@ public class FootStepper : MonoBehaviour
             Vector3 liftedPos = startPos + (endPos - startPos) * 0.5f + Vector3.up * heightOffset;
             Vector3 bezierPos = (1 - normalizedTime) * (1 - normalizedTime) * startPos + 2 * (1 - normalizedTime) * normalizedTime * liftedPos + normalizedTime * normalizedTime * endPos;
             transform.position = bezierPos;
-            
-
             // END TODO ###################
 
             /*

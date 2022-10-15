@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class GeneticAlgo : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class GeneticAlgo : MonoBehaviour
         {
             animals.Add(makeAnimal());
         }
-        customTerrain.debug.text = "N° animals: " + animals.Count.ToString();
+        customTerrain.debug.text = "Nï¿½ animals: " + animals.Count.ToString();
 
         // Update grass elements/food resources.
         updateResources();
@@ -80,9 +81,15 @@ public class GeneticAlgo : MonoBehaviour
     public GameObject makeAnimal(Vector3 position)
     {
         GameObject animal = Instantiate(animalPrefab, transform);
-        animal.GetComponent<Animal>().Setup(customTerrain, this);
+        animal.GetComponent<Animal>().Setup(customTerrain, this); // there might be an issue with this ...
         animal.transform.position = position;
         animal.transform.Rotate(0.0f, UnityEngine.Random.value * 360.0f, 0.0f);
+
+        // unpack animal prefab to avoid overriding stuff later (e.g footsteppers)
+        // (doesnt work)
+        // PrefabUtility.UnpackPrefabInstance(animalPrefab,PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+        // PrefabUtility.DisconnectPrefabInstance(animalPrefab);
+
         return animal;
     }
 

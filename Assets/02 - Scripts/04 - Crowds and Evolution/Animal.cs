@@ -111,6 +111,8 @@ public class Animal : MonoBehaviour
         // 3. Act using actuators.
         float angle = (output[0] * 2.0f - 1.0f) * maxAngle;
         tfm.Rotate(0.0f, angle, 0.0f);
+        // TODO: CHANGE THIS FOR THE QUADRUPED 
+        // (MIGHT WANT TO HAVE ANOTHER SCRIPT FOR THE QUADRUPED)
     }
 
     /// <summary>
