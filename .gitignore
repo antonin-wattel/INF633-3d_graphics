@@ -69,3 +69,36 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Grass and flowers
+Assets/GrassFlowers
+Assets/GrassFlowers.meta
+# Natural ground textures
+Assets/ADG_Textures
+Assets/ADG_Textures.meta
+# ??
+Assets/_TerrainAutoUpgrade
+Assets/_TerrainAutoUpgrade.meta
+# Rock texture
+Assets/TextureHaven
+Assets/TextureHaven.meta
+# Snow texture
+Assets/Paid
+Assets/Paid.meta
+# Palm Trees
+Assets/PalmTreePack
+Assets/PalmTreePack.meta
+# Cacti
+Assets/CactusPack
+Assets/CactusPack.meta
+
+# Exaggerated and Unique Foliage
+Assets/JonathanFoust
+Assets/JonathanFoust.meta
+
+# Tree textures
+Assets/Tree 1_Textures
+Assets/Tree_Textures.meta
+
+# Brushes
+Assets/YughuesFreeBushes2018

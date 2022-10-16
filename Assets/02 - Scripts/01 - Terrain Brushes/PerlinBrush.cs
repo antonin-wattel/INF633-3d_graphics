@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PerlinBrush : TerrainBrush {
 
-    public float h = 0.5f;
-    public float s = 2.0f;
+    public float h = 0.1f;
+    public float s = 1.0f;
     public float o = 0.0f;
-    public int maxN = 50;
+    public int maxN = 10;
 
     public override void draw(int x, int z) {
 
@@ -17,12 +17,12 @@ public class PerlinBrush : TerrainBrush {
                 float rand_max = Random.Range(0, maxN);
                 float perlin = 0;
                 for(int i = 0; i < rand_max; i++){
-                    perlin += Mathf.PerlinNoise(s*(xi+o), s*(zi+o));
+                    perlin += Mathf.PerlinNoise(s*((x+xi)+o), s*((z+zi)+o));
                 }
 
                 float height = h * perlin;
 
-                terrain.set(x + xi, z + zi, height);
+                terrain.set(x + xi, z + zi, terrain.get(x + xi, z + zi) + height);
 
             }
         }
