@@ -20,13 +20,13 @@ public class Animal : MonoBehaviour
     public GameObject goalSphere;
 
     [Header("Energy parameters")]
-    public float maxEnergy = 1000.0f;
-    public float lossEnergy = 0.001f;
+    public float maxEnergy = 10.0f;
+    public float lossEnergy = 0.1f;
     public float gainEnergy = 10.0f;
     private float energy;
 
     [Header("Sensor - Vision")]
-    public float maxVision = 50.0f;
+    public float maxVision = 20.0f;
     public float stepAngle = 10.0f;
     public int nEyes = 5;
 
@@ -69,6 +69,7 @@ public class Animal : MonoBehaviour
             print("created goal inside animal");
             goal.parent  = tfm;
             goal.position = tfm.position + tfm.forward * 15; // put it better :)
+            // TO DO: make sure it is over the ground
                 //make a red sphere to represent the goal
             // }
             // if (goalSphere == null)
@@ -143,19 +144,20 @@ public class Animal : MonoBehaviour
         if (goal_oriented)
         {
             // if it is goal directed (e.g snake, quadruped) move the goal only 
-            // print("Goal directed, moving goal");
             float goalAngle = (output[0] * 2.0f - 1.0f) * maxAngle;
-            //rotate the goal wrt the animal center
-            goal.RotateAround(tfm.position, tfm.up, goalAngle);
+            goal.RotateAround(tfm.position, tfm.up, goalAngle);//rotate the goal wrt the animal center
+            goal.position += tfm.forward * 0.2f;//go straight for a bit
 
-            //go straight for a bit 
+            // Vector3 scale = terrain.terrainData.heightmapScale;
+            // goal.position.y = terrain.getInterp(tfm.position.x / scale.x, tfm.position.z / scale.z) + 5.0f;//elevate the goal so its always above the ground
+            goal.position = new Vector3(goal.position.x, terrain.getInterp(goal.position.x, goal.position.z) + 5.0f, goal.position.z);
+
+            // goal.position = new Vector3(goal.position.x, terrain.getHeight(goal.position.x, goal.position.z) + 2.0f, goal.position.z);
             //(TO DO: ADD ANOTHER NEURON FOR THE DISTANCE HERE (SPEED))
-            // tfm.position += tfm.forward * 0.1f;
-            goal.position += tfm.forward * 0.2f;
-            
-            // update the pos of the sphere child
             goalSphere.transform.position = goal.position;
             // print("updated position");
+            //hacky: force tfm to be high enough
+            tfm.position = new Vector3(tfm.position.x, terrain.getInterp(tfm.position.x, tfm.position.z) + 2.0f, tfm.position.z);
         }
         else
         {
@@ -164,8 +166,6 @@ public class Animal : MonoBehaviour
             tfm.Rotate(0.0f, angle, 0.0f);
         }
 
-        // TODO: CHANGE THIS FOR THE QUADRUPED 
-        // (MIGHT WANT TO HAVE ANOTHER SCRIPT FOR THE QUADRUPED)
     }
 
     /// <summary>

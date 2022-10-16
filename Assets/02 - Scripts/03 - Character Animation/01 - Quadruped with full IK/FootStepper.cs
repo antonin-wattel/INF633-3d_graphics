@@ -40,6 +40,11 @@ public class FootStepper : MonoBehaviour
 
         //duplicate the transform game object
         //now set the transform game object as the new one
+        
+        
+
+
+
 
         // transform.SetParent(transform.parent.parent.parent.parent);//pb this does not move and IK is still shit
         // transform.SetParent(homeTransform.parent);
@@ -89,12 +94,12 @@ public class FootStepper : MonoBehaviour
     public void MoveLeg()
     {
         // print("inside MoveLeg");
-        // // If we are already moving, don't start another move.
-        // if (Moving)
-        // {
-        //     print("already mooving :(");
-        //     return;
-        // }
+        // If we are already moving, don't start another move.
+        if (Moving)
+        {
+            // print("already mooving :(");
+            return;
+        }
 
         /*
          * First, we want to calculate the distance from the GameObject where this script is attached (target, red sphere) to the home position of the respective leg (blue chip).

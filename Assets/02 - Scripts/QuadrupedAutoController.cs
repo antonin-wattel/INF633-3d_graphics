@@ -216,12 +216,12 @@ public class QuadrupedAutoController : MonoBehaviour {
         // The ray information gives you where you hit and the normal of the terrain in that location.
         if (Physics.Raycast(raycastOrigin, -transform.up, out RaycastHit hit, Mathf.Infinity))
         {
-            //if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            //{
+            // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            // {
                 posHit = hit.point;
                 distanceHit = hit.distance;
                 normalTerrain = hit.normal;
-            //}
+            // }
         }
 
         /*
@@ -235,15 +235,18 @@ public class QuadrupedAutoController : MonoBehaviour {
 
         // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
         // {
-        //     print("hit the ground :)")
-        //     float hips_offset = 3.0f;
-        //     hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
-        //     hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
+        //     print("hit the ground :)");
+            float hips_offset = 3.0f;
+            hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+            hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
         // }
 
-        float hips_offset = 1.0f;
-        hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
-        hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
+        //hacky way, just use the height of the terrain directly
+        hips.position = new Vector3(hips.position.x, cterrain.getInterp(hips.position.x, hips.position.z) + 1.0f, hips.position.z);
+
+        // float hips_offset = 2.0f;
+        // hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+        // hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
 
         // END TODO ###################
     }
