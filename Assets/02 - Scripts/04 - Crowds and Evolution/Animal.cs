@@ -14,6 +14,11 @@ public class Animal : MonoBehaviour
     public float mutateStrength = 0.5f;
     public float maxAngle = 10.0f;
 
+    [Header("Goal oriented animal")]
+    public bool goal_oriented = true;
+    public Transform goal;
+    public GameObject goalSphere;
+
     [Header("Energy parameters")]
     public float maxEnergy = 10.0f;
     public float lossEnergy = 0.1f;
@@ -51,6 +56,31 @@ public class Animal : MonoBehaviour
         networkStruct = new int[] { nEyes, 5, 1 };
         energy = maxEnergy;
         tfm = transform;
+
+        // set the goal in front of the animal
+        if (goal_oriented)
+        {
+
+            // before doing tht, lets just check these are not instantiated
+            // if (goal == null)
+            // {
+                // create a new game object named goal 
+            goal = new GameObject("goal").transform;
+            print("created goal inside animal");
+            goal.parent  = tfm;
+            goal.position = tfm.position + tfm.forward * 15; // put it better :)
+                //make a red sphere to represent the goal
+            // }
+            // if (goalSphere == null)
+            // {
+                goalSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                goalSphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                goalSphere.GetComponent<Renderer>().material.color = Color.red;
+                goalSphere.transform.position = goal.position;
+                goalSphere.transform.parent = goal;
+            // }
+
+        }
 
         // Renderer used to update animal color.
         // It needs to be updated for more complex models.
@@ -109,8 +139,31 @@ public class Animal : MonoBehaviour
         float[] output = brain.getOutput(vision);
 
         // 3. Act using actuators.
-        float angle = (output[0] * 2.0f - 1.0f) * maxAngle;
-        tfm.Rotate(0.0f, angle, 0.0f);
+        
+        if (goal_oriented)
+        {
+            // if it is goal directed (e.g snake, quadruped) move the goal only 
+            // print("Goal directed, moving goal");
+            float goalAngle = (output[0] * 2.0f - 1.0f) * maxAngle;
+            //rotate the goal wrt the animal center
+            goal.RotateAround(tfm.position, tfm.up, goalAngle);
+
+            //go straight for a bit 
+            //(TO DO: ADD ANOTHER NEURON FOR THE DISTANCE HERE (SPEED))
+            // tfm.position += tfm.forward * 0.1f;
+            goal.position += tfm.forward * 0.2f;
+            
+            // update the pos of the sphere child
+            goalSphere.transform.position = goal.position;
+            // print("updated position");
+        }
+        else
+        {
+            // otherwise act directly on the animal position (simple)
+            float angle = (output[0] * 2.0f - 1.0f) * maxAngle;
+            tfm.Rotate(0.0f, angle, 0.0f);
+        }
+
         // TODO: CHANGE THIS FOR THE QUADRUPED 
         // (MIGHT WANT TO HAVE ANOTHER SCRIPT FOR THE QUADRUPED)
     }

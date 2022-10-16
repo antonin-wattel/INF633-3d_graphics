@@ -85,6 +85,37 @@ public class GeneticAlgo : MonoBehaviour
         animal.transform.position = position;
         animal.transform.Rotate(0.0f, UnityEngine.Random.value * 360.0f, 0.0f);
 
+        // might want to have a separate genetic algo script for each animal
+        // if the animal is goal directed, let us setup the goal position
+        // if there is a goal inside the scene, that is what we will use
+        // if there is a goal variable as a child of the animal
+
+        // if (animal.Find("Goal") != null)
+        // try to find a goal in the children of animal 
+        // if (GameObject.Find("Goal") != null)
+
+        // look for a goal component in the children of animalprefab
+
+        // this migh work (not testes yet)
+        // Transform[] ts = animal.transform.GetComponentsInChildren();
+        // foreach (Transform t in ts) if (t.gameObject.name == "Goal"){
+        //     print("found goal in children !!");
+        //     //set the position of the goal
+        //     t.position = new Vector3(UnityEngine.Random.value * width, 0.0f, UnityEngine.Random.value * height);
+        // }
+
+        //set the goal value as the GoalCopy
+        
+        
+
+        // if there is a goal component in the children of animalPrefab
+        // if (animalPrefab.gameObject.GetComponentInChildren<Goal>() != null)
+        // {
+        //     // setup the position of the goal in front of the head
+        //     print("setting up goal !!");
+        //     animal.transform.Find("Goal").position = animal.transform.position + animal.transform.forward * 5.0f;
+        // }
+
         // unpack animal prefab to avoid overriding stuff later (e.g footsteppers)
         // (doesnt work)
         // PrefabUtility.UnpackPrefabInstance(animalPrefab,PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);

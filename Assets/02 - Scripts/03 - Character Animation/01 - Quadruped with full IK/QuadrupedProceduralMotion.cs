@@ -59,15 +59,99 @@ public class QuadrupedProceduralMotion : MonoBehaviour
     // Awake is called when the script instance is being loaded.
     void Awake()
     {
+        print("procedural motion awake...");
         StartCoroutine(Gait());
         TailInitialize();
         BodyInitialize();
+
+        // we need to set the goal with no parent to avoid goal moving with the animal
+        //but !!! we need to avoid overrides
+
+        // make a copy of the goal and set it as a child of the animal
+        // Transform goalCopy = Instantiate(goal, transform);
+        
+        //try to see if there is a goal already in the children
+
+        // set goal as the Goal variable already created in Animal.cs
+        // we have to look for it properly
+
+        //THIS SHOULD WORK BY FIXING THIS !
+        // Transform[] ts = hips.parent.transform.GetComponentsInChildren<Transform>();
+        // foreach (Transform t in ts) {
+        //     // print("t.gameObject.name: "+t.gameObject.name);
+        //     if (t.gameObject.name == "goal"){
+        //         print("found goal (inside) in children !!");
+        //         //set the position of the goal
+        //         //now we need to unparent it to avoid problems 
+        //         goal = t;
+        //         goal.parent = null;
+        //     }
+        // } 
+        Transform[] ts = hips.parent.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts) {
+            // print("t.gameObject.name: "+t.gameObject.name);
+            if (t.gameObject.name == "goal"){
+                print("found goal (inside) in children !!");
+                //set the position of the goal
+                //now we need to unparent it to avoid problems 
+                goal = t;
+                // only take the transform
+                goal = goal.transform;
+                goal.parent = null;
+            }
+        } 
+
+        // //check if the goal value belongs to the children
+        // if (goal != null)
+        // {
+        //     //check if the goal is a child of the animal
+        //     if (goal.parent == transform)
+        //     {
+        //         //if it is a child, we just need do deparent it
+        //         goal.parent = null;
+        //     }
+        //     else
+        //     {
+        //         //if it is not a child, we are fine, it was already deparented
+        //     }
+        // }
+        // else
+        // {
+        //     //if there is no goal, we need to create one
+        //     GameObject goalObject = new GameObject("Goal");
+        //     goalObject.transform.parent = transform;
+        //     goal = goalObject.transform;
+        //     //now deparent it
+        //     goal.parent = null;
+        // }
+
+
+        // Transform[] ts = animal.transform.GetComponentsInChildren();
+        // foreach (Transform t in ts) if (t.gameObject.name == "Goal"){
+        //     print("found goal in children !!");
+        //     //set the position of the goal
+        //     t.position = new Vector3(UnityEngine.Random.value * width, 0.0f, UnityEngine.Random.value * height);
+    
+
     }
 
     // Update is called every frame, if the MonoBehaviour is enabled.
     private void Update()
     {        
+        //THIS SHOULD WORK BY FIXING THIS !
+        Transform[] ts = hips.parent.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts) {
+            // print("t.gameObject.name: "+t.gameObject.name);
+            if (t.gameObject.name == "goal"){
+                print("found goal (inside) in children !!");
+                //set the position of the goal
+                //now we need to unparent it to avoid problems 
+                goal = t;
+                goal.parent = null;
+            }
+        } 
         RootMotion();
+        print("procedural motion updated...");
     }
 
     // LateUpdate is called after all Update functions have been called.
@@ -277,9 +361,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontLeftFoot.MoveLeg();
-                print("front left foot moved..");
+                // print("front left foot moved..");
                 backRightFoot.MoveLeg();
-                print("back right foot moved..");
+                // print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
@@ -290,9 +374,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontRightFoot.MoveLeg();
-                print("front left foot moved..");
+                // print("front left foot moved..");
                 backLeftFoot.MoveLeg();
-                print("back right foot moved..");
+                // print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
