@@ -70,9 +70,18 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Grass and flowers
 Assets/GrassFlowers
-Assets/ADG_Textures
-Assets/_TerrainAutoUpgrade
-Assets/ADG_Textures.meta
 Assets/GrassFlowers.meta
+# Natural ground textures
+Assets/ADG_Textures
+Assets/ADG_Textures.meta
+# ??
+Assets/_TerrainAutoUpgrade
 Assets/_TerrainAutoUpgrade.meta
+# Rock texture
+Assets/TextureHaven
+Assets/TextureHaven.meta
+# Snow texture
+Assets/Paid
+Assets/Paid.meta
