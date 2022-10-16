@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class ConcentricTreesBrush : InstanceBrush {
 
-    // TO COMPLETE
+    public int numTrees = 10;
+    public int radiusSkip = 1;
 
     public override void draw(float x, float z) {
 
+        for(int r = 0; r <= radius; r+=radiusSkip) {
 
-        // choose a random position in the square
-        float rx = Random.Range(x - radius, x + radius);
-        float rz = Random.Range(z - radius, z + radius);
+            if(r == 0) spawnObject(x, z);
+            else {
+                float spacing = (2*Mathf.PI)/numTrees;
+                for(float j = 0; j < (2*Mathf.PI); j+=spacing) {
+                    float xi = x+(r*Mathf.Cos(j));
+                    float zi = z+(r*Mathf.Sin(j));
+                    spawnObject(xi, zi);
+                }
+            }
 
-        // make sure it is in the circle
-        if (Vector2.Distance(new Vector2(rx, rz), new Vector2(x, z)) < radius) {
-            // spawn the object at that position
-            spawnObject(rx, rz);
-        }
-        else {
-            draw(x, z);//redo again if not in the circle
         }
     
     }

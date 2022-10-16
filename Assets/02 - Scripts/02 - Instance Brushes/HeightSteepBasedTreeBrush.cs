@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class HeightSteepBasedTreeBrush : InstanceBrush
 {
-    int radius = 30;
-    float height = 0.0f;
-    float steepness = 0.0f;
+    public float height1 = 10f;
+    public float height2 = 20f;
+    public float height3 = 30f;
+    public float steepness_max = 20f;
 
     public override void draw(float x, float z) {
         
         Debug.Log("x = " + x + " z = " + z);
-        height = terrain.get(x, z);
-        steepness = terrain.getSteepness(x, z);
-        Debug.Log($"Height = {height}, Steepness = {steepness}");
+        float curr_height = terrain.get(x, z);
+        float curr_steepness = terrain.getSteepness(x, z);
+        Debug.Log($"Height = {curr_height}, Steepness = {curr_steepness}");
 
-        // hardcoded values for now //
-        if (height < 10f && steepness < 20f) {
-            spawnObjectCustom(x, z, 0);
-        }
-        // else if (height < 20f && steepness < 30f) {
-        //     spawnObjectCustom(x, z, 1);
-        // }
-        else{
-            // do nothing
+        if((curr_height < height1) && (curr_steepness < steepness_max)) {
             spawnObjectCustom(x, z, 1);
         }
-
-        // some code for the distribution brush //
-        // for (int zi = -radius; zi <= radius; zi=zi+10) {
-        //     for (int xi = -radius; xi <= radius; xi=xi+10) {
-        //         spawnObjectCustom(x+xi, z+zi, 0);
-        //     }
-        // }
+        else if((curr_height >= height1) && (curr_height < height2) && (curr_steepness < steepness_max)) {
+            spawnObjectCustom(x, z, 0);
+        }
+        else if((curr_height >= height2) && (curr_height < height3) && (curr_steepness < steepness_max)) {
+            spawnObjectCustom(x, z, 2);
+        }
+        else {
+            // Don't plant anything
+            Debug.Log("Too high up. Nothing can grow.");
+        }
+        
+        
 
     }
 }
