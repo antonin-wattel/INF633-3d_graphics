@@ -69,3 +69,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+Assets/GrassFlowers
+Assets/ADG_Textures
+Assets/_TerrainAutoUpgrade
+Assets/ADG_Textures.meta
+Assets/GrassFlowers.meta
+Assets/_TerrainAutoUpgrade.meta
