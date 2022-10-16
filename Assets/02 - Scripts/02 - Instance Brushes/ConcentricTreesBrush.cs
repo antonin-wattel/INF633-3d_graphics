@@ -5,13 +5,13 @@ using UnityEngine;
 public class ConcentricTreesBrush : InstanceBrush {
 
     public int numTrees = 10;
-    public int radiusSkip = 1;
+    public float radiusSkip = 1.0f;
 
     public override void draw(float x, float z) {
 
-        for(int r = 0; r <= radius; r+=radiusSkip) {
+        for(float r = 0.0f; r <= radius; r+=radiusSkip) {
 
-            if(r == 0) spawnObject(x, z);
+            if(r == 0.0f) spawnObject(x, z);
             else {
                 float spacing = (2*Mathf.PI)/numTrees;
                 for(float j = 0; j < (2*Mathf.PI); j+=spacing) {
