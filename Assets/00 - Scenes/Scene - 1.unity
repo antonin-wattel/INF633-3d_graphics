@@ -175,15 +175,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756460624979582887, guid: 2ea9df0dc5608ab4f9c12d55c141b621, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 110.26
       objectReference: {fileID: 0}
     - target: {fileID: 7756460624979582887, guid: 2ea9df0dc5608ab4f9c12d55c141b621, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 7756460624979582887, guid: 2ea9df0dc5608ab4f9c12d55c141b621, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.83
+      value: 117.95
       objectReference: {fileID: 0}
     - target: {fileID: 7756460624979582887, guid: 2ea9df0dc5608ab4f9c12d55c141b621, type: 3}
       propertyPath: m_LocalRotation.w
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: {fileID: 1822113349}
-  brush_radius: 19
+  brush_radius: 49
   object_prefab: {fileID: 100000, guid: 6aab193b7693b5e4c9741f1917d2987c, type: 3}
   min_scale: 0.8
   max_scale: 1.2
