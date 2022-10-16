@@ -93,11 +93,11 @@ public class FootStepper : MonoBehaviour
     /// </summary>
     public void MoveLeg()
     {
-        print("inside MoveLeg");
+        // print("inside MoveLeg");
         // If we are already moving, don't start another move.
         if (Moving)
         {
-            print("already mooving :(");
+            // print("already mooving :(");
             return;
         }
 
@@ -116,7 +116,7 @@ public class FootStepper : MonoBehaviour
         if (distFromHome > distanceThreshold || angleFromHome > angleThreshold)
         {
             // END TODO ###################
-            print("threshold exceeded: move baby !");
+            // print("threshold exceeded: move baby !");
 
             // Get the grounded location for the feet. It can return false - in that case, it won't move.
             // This method modifies the values by reference, which are used later.

@@ -133,14 +133,14 @@ public class FabricIKQuadruped : MonoBehaviour
         // If no target is found.
         if (target == null)
         {
-            Debug.Log("[INFO] No Target selected");
+            // Debug.Log("[INFO] No Target selected");
             return;
         }
 
         // If during run-time, I change chainLength, we re-initialize the bones.
         if (bonesLength.Length != chainLength)
         {
-            Debug.Log("[INFO] Re-initializing bones");
+            // Debug.Log("[INFO] Re-initializing bones");
             Init();
         }
 

@@ -131,14 +131,14 @@ public class FabricIK : MonoBehaviour
         // If no target is found.
         if (target == null)
         {
-            Debug.Log("[INFO] No Target selected");
+            // Debug.Log("[INFO] No Target selected");
             return;
         }
 
         // If during run-time, I change chainLength, we re-initialize the bones.
         if (bonesLength.Length != chainLength)
         {
-            Debug.Log("[INFO] Re-initializing bones");
+            // Debug.Log("[INFO] Re-initializing bones");
             Init();
         }
 
@@ -172,7 +172,7 @@ public class FabricIK : MonoBehaviour
 
         if (distance > completeLength)//if target far away from the effector
         {
-            print("target far away from effector : remains straight poiting towards the target");
+            // print("target far away from effector : remains straight poiting towards the target");
             //In that case, by default, it will remain straight pointing towards the target.
             //The updated root bone position (bonesPositions[0]) should not change. ???
             for (int i = 1; i < bonesPositions.Length; i++)
@@ -201,7 +201,7 @@ public class FabricIK : MonoBehaviour
 
         else
         {
-            print("target closer to effector : the chain will need to move in order to reach it");
+            // print("target closer to effector : the chain will need to move in order to reach it");
             // We go though each iteration.
             for (int ite = 0; ite < iterations; ite++)
             {

@@ -15,13 +15,13 @@ public class Animal : MonoBehaviour
     public float maxAngle = 10.0f;
 
     [Header("Energy parameters")]
-    public float maxEnergy = 10.0f;
-    public float lossEnergy = 0.1f;
+    public float maxEnergy = 1000.0f;
+    public float lossEnergy = 0.001f;
     public float gainEnergy = 10.0f;
     private float energy;
 
     [Header("Sensor - Vision")]
-    public float maxVision = 20.0f;
+    public float maxVision = 50.0f;
     public float stepAngle = 10.0f;
     public int nEyes = 5;
 

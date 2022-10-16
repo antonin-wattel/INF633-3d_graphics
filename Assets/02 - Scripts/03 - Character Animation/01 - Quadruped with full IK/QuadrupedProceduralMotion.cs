@@ -277,9 +277,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontLeftFoot.MoveLeg();
-                print("front left foot moved..");
+                // print("front left foot moved..");
                 backRightFoot.MoveLeg();
-                print("back right foot moved..");
+                // print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
@@ -290,9 +290,9 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             do
             {
                 frontRightFoot.MoveLeg();
-                print("front left foot moved..");
+                // print("front left foot moved..");
                 backLeftFoot.MoveLeg();
-                print("back right foot moved..");
+                // print("back right foot moved..");
 
                 // Wait a frame
                 yield return null;
