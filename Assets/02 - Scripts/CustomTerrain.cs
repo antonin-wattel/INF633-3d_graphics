@@ -277,4 +277,30 @@ public class CustomTerrain : MonoBehaviour {
     public Brush getBrush() {
         return current_brush;
     }
+
+
+    // This function will calculate the number of textures there are in a terrain,
+    // and return the integer associated with the given texture at some coordinates
+    public int getSpecificTexture(float xc, float zc) 
+    {   
+        Vector3 vect = new Vector3();
+        Vector3 pos = terrain.transform.position;
+        // Converting to terrain layer coordinates
+        vect.x = ((xc - pos.x) / terrain_size.x) * amap_width;
+        vect.z = ((zc - pos.z) / terrain_size.z) * amap_height;
+        
+        int numTextures = alphamaps.Length / (amap_width * amap_height);
+
+        int tex = 0;
+        float sim = 0f;
+        for (int i = 0; i < numTextures; i++)
+        {
+            if (sim < alphamaps[(int) vect.z, (int) vect.x, i])
+                tex = i;
+        }
+        return tex;
+    }
+
+
+
 }

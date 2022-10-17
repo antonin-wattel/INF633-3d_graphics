@@ -67,10 +67,19 @@ public class GeneticAlgo : MonoBehaviour
         {
             int x = (int)(UnityEngine.Random.value * detail_sz.x);
             int y = (int)(UnityEngine.Random.value * detail_sz.y);
-            details[y, x] = 1;
-            currentGrowth -= 1.0f;
+
+            // Converting to world coordinates
+            float xx = (x * width) / detail_sz.x;
+            float yy = (y * height) / detail_sz.y;
+
+            if((customTerrain.get(xx, yy) < 30f) && (customTerrain.getSpecificTexture(xx, yy) != 2)) {
+                details[y, x] = 1;
+                currentGrowth -= 1.0f;
+
+            }
         }
         customTerrain.saveDetails();
+
     }
 
     /// <summary>
