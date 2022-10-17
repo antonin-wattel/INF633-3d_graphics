@@ -20,6 +20,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
     public float maxDistToGoal;
     SmoothDamp.Vector3 currentVelocity;
     SmoothDamp.Float currentAngularVelocity;
+    public bool useraytracing = true;
 
     // Settings relative to body adaptation to the terrain.
     [Header("Body Adaptation Settings")]
@@ -260,6 +261,10 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         // {
             print("hit the ground :)");
             float hips_offset = 1.0f;
+            
+            if (useraytracing == true){
+                hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+            }
             // hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
             hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
         // }
