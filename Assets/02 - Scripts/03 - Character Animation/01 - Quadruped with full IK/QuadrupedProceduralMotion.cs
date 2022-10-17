@@ -239,12 +239,12 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         if (Physics.Raycast(raycastOrigin, -transform.up, out RaycastHit hit, Mathf.Infinity))
         {
             //comment this if not working
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
+            // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            // {
                 posHit = hit.point;
                 distanceHit = hit.distance;
                 normalTerrain = hit.normal;
-            }
+            // }
         }
 
         /*
@@ -264,7 +264,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         //     hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
         // }
 
-        float hips_offset = 1.0f;
+        float hips_offset = 5.0f;
         hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
         hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
 
