@@ -59,7 +59,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
     // Awake is called when the script instance is being loaded.
     void Awake()
     {
-        print("procedural motion awake...");
+        // print("procedural motion awake...");
         StartCoroutine(Gait());
         TailInitialize();
         BodyInitialize();
@@ -151,7 +151,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             }
         } 
         RootMotion();
-        print("procedural motion updated...");
+        // print("procedural motion updated...");
     }
 
     // LateUpdate is called after all Update functions have been called.
@@ -238,7 +238,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         // The ray information gives you where you hit and the normal of the terrain in that location.
         if (Physics.Raycast(raycastOrigin, -transform.up, out RaycastHit hit, Mathf.Infinity))
         {
-            //comment this if not working
+            // comment this if not working
             // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             // {
                 posHit = hit.point;
@@ -258,17 +258,19 @@ public class QuadrupedProceduralMotion : MonoBehaviour
 
         // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
         // {
-        //     print("hit the ground :)")
-        //     float hips_offset = 3.0f;
-        //     hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
-        //     hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
+            print("hit the ground :)");
+            float hips_offset = 1.0f;
+            // hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+            hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
         // }
 
-        float hips_offset = 5.0f;
-        hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
-        hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
-
-        // END TODO ###################
+        // float hips_offset = 10.0f;
+        // // hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+        // //hacky way: directly from the terrain height using interp
+        // // float height = cterrain.getInterp(hips.position.x, hips.position.z);
+        // hips.position = new Vector3(hips.position.x, posHit.y + hips_offset, hips.position.z);
+        // hips.rotation =  Quaternion.Lerp(hips.rotation,  Quaternion.FromToRotation(hips.up, normalTerrain)* hips.rotation , heightAcceleration * Time.deltaTime); 
+        // // END TODO ###################
     }
 
     #endregion

@@ -18,7 +18,7 @@ public class SmoothingBrush : TerrainBrush {
         float sum = 0;
         for (int i = 0; i < kernel_size; i++) {
             for (int j = 0; j < kernel_size; j++) {
-                print("yo - " + Mathf.Exp(-(i*i + j*j)/(2*sigma*sigma)));
+                // print("yo - " + Mathf.Exp(-(i*i + j*j)/(2*sigma*sigma)));
                 kernel[i, j] = Mathf.Exp(-(i*i + j*j)/(2*sigma*sigma));
                 sum += kernel[i, j];
             }

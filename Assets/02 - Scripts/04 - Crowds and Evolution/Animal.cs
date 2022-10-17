@@ -66,7 +66,7 @@ public class Animal : MonoBehaviour
             // {
                 // create a new game object named goal 
             goal = new GameObject("goal").transform;
-            print("created goal inside animal");
+            // print("created goal inside animal");
             goal.parent  = tfm;
             goal.position = tfm.position + tfm.forward * 15; // put it better :)
             // TO DO: make sure it is over the ground
@@ -154,7 +154,17 @@ public class Animal : MonoBehaviour
 
             // goal.position = new Vector3(goal.position.x, terrain.getHeight(goal.position.x, goal.position.z) + 2.0f, goal.position.z);
             //(TO DO: ADD ANOTHER NEURON FOR THE DISTANCE HERE (SPEED))
+
+            if (goalSphere == null)
+            {
+                goalSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                goalSphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                goalSphere.GetComponent<Renderer>().material.color = Color.red;
+                goalSphere.transform.position = goal.position;
+                goalSphere.transform.parent = goal;
+            }
             goalSphere.transform.position = goal.position;
+
             // print("updated position");
             //hacky: force tfm to be high enough
             tfm.position = new Vector3(tfm.position.x, terrain.getInterp(tfm.position.x, tfm.position.z) + 2.0f, tfm.position.z);
