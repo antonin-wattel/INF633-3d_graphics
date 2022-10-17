@@ -66,7 +66,7 @@ public class Animal : MonoBehaviour
             // {
                 // create a new game object named goal 
             goal = new GameObject("goal").transform;
-            print("created goal inside animal");
+            // print("created goal inside animal");
             goal.parent  = tfm;
             goal.position = tfm.position + tfm.forward * 15; // put it better :)
             // TO DO: make sure it is over the ground

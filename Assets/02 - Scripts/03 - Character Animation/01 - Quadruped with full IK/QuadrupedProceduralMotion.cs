@@ -59,7 +59,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
     // Awake is called when the script instance is being loaded.
     void Awake()
     {
-        print("procedural motion awake...");
+        // print("procedural motion awake...");
         StartCoroutine(Gait());
         TailInitialize();
         BodyInitialize();
@@ -151,7 +151,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
             }
         } 
         RootMotion();
-        print("procedural motion updated...");
+        // print("procedural motion updated...");
     }
 
     // LateUpdate is called after all Update functions have been called.
