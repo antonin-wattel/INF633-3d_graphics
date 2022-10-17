@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366753, g: 0.48427093, b: 0.5645238, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,13 +970,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374040426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58addec6626ef40dfb932e8efbbb6236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popSize: 15
-  animalPrefab: {fileID: 430668510147707165}
+  popSize: 0
+  animalPrefab: {fileID: 1782094686}
   vegetationGrowthRate: 2
   currentGrowth: 0
 --- !u!1 &534669902
@@ -991,6 +991,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Bird Camera
   m_TagString: SecondCamera
@@ -1079,6 +1080,18 @@ MonoBehaviour:
   pan_sensitivity: 2
   look_sensitivity: 2
   scroll_sensitivity: 50
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab67d48449ca4f5aaff0a6e8f1a46ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592349869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670388604}
   - component: {fileID: 670388603}
+  - component: {fileID: 670388605}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionSceneCamera
   m_TagString: Untagged
@@ -1414,14 +1428,23 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670388602}
-  m_LocalRotation: {x: -0.0788149, y: 0.48020634, z: 0.04337664, w: 0.8725299}
-  m_LocalPosition: {x: 5.7758684, y: 41.64, z: 7.3247967}
+  m_LocalRotation: {x: 0.3065744, y: -0.2973769, z: -0.10140045, w: -0.89849716}
+  m_LocalPosition: {x: 94.1807, y: -124.70979, z: 93.00894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &670388605
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670388602}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &678309649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724899278}
   - component: {fileID: 724899277}
+  - component: {fileID: 724899279}
   m_Layer: 0
   m_Name: Water4Advanced (1)ReflectionSceneCamera
   m_TagString: Untagged
@@ -1564,14 +1588,23 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724899276}
-  m_LocalRotation: {x: -0.0788149, y: 0.48020634, z: 0.04337664, w: 0.8725299}
-  m_LocalPosition: {x: 5.7758684, y: 41.64, z: 7.3247967}
+  m_LocalRotation: {x: 0.3065744, y: -0.2973769, z: -0.10140045, w: -0.89849716}
+  m_LocalPosition: {x: 94.1807, y: -124.70979, z: 93.00894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &724899279
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724899276}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &780717906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1746,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4208508352672406436, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 3.0129883
+      value: 3.0129864
       objectReference: {fileID: 0}
     - target: {fileID: 4208508352672406436, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
@@ -1733,11 +1766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208508352696562892, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 4.619032
+      value: 4.619031
       objectReference: {fileID: 0}
     - target: {fileID: 4208508352696562892, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: 3.8872268
+      value: 3.8872263
       objectReference: {fileID: 0}
     - target: {fileID: 4208508352696562892, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].x
@@ -1805,15 +1838,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353929510071, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 3.012983
+      value: 3.0129817
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353929510071, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].y
-      value: 60.137638
+      value: 60.137646
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353929510071, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: 5.230717
+      value: 5.2307177
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353929510071, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -1825,11 +1858,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353998874022, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 4.619032
+      value: 4.619031
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353998874022, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: -3.8872268
+      value: -3.8872263
       objectReference: {fileID: 0}
     - target: {fileID: 4208508353998874022, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].x
@@ -1934,6 +1967,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8894489698970213041, guid: 17795e0eb3f3ff249bf060dfcc7935e6, type: 3}
   m_PrefabInstance: {fileID: 881136930}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &990942364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 990942367}
+  - component: {fileID: 990942366}
+  - component: {fileID: 990942365}
+  m_Layer: 0
+  m_Name: Water4Advanced (2)ReflectionPreview Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!45 &990942365
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990942364}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
+--- !u!20 &990942366
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990942364}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_projectionMatrixMode: 0
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967279
+  m_RenderingPath: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &990942367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990942364}
+  m_LocalRotation: {x: -0.3227612, y: 0.37657604, z: 0.14184938, w: 0.8566764}
+  m_LocalPosition: {x: 223.56229, y: -382.95154, z: 205.56363}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &996603213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2116,6 +2234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261537019}
   - component: {fileID: 1261537018}
+  - component: {fileID: 1261537020}
   m_Layer: 0
   m_Name: Water4Advanced (3)ReflectionSceneCamera
   m_TagString: Untagged
@@ -2173,14 +2292,23 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261537017}
-  m_LocalRotation: {x: -0.0788149, y: 0.48020634, z: 0.04337664, w: 0.8725299}
-  m_LocalPosition: {x: 5.7758684, y: 41.64, z: 7.3247967}
+  m_LocalRotation: {x: 0.3065744, y: -0.2973769, z: -0.10140045, w: -0.89849716}
+  m_LocalPosition: {x: 94.1807, y: -124.70979, z: 93.00894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1261537020
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261537017}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1338502929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,8 +2376,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338502929}
-  m_LocalRotation: {x: -0.0788149, y: 0.48020634, z: 0.04337664, w: 0.8725299}
-  m_LocalPosition: {x: 5.7758684, y: 41.64, z: 7.3247967}
+  m_LocalRotation: {x: 0.36895034, y: -0.2713712, z: -0.11348345, w: -0.88167727}
+  m_LocalPosition: {x: 58.30539, y: -147.03528, z: 95.45507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2898,7 +3026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637581769978702893, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 3.0129883
+      value: 3.0129864
       objectReference: {fileID: 0}
     - target: {fileID: 4637581769978702893, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -2910,11 +3038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771033327667, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 4.619032
+      value: 4.619031
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771033327667, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: -3.8872268
+      value: -3.8872263
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771033327667, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -2926,15 +3054,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771538382440, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 3.012983
+      value: 3.0129817
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771538382440, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].y
-      value: 60.137638
+      value: 60.137646
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771538382440, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: 5.230717
+      value: 5.2307177
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771538382440, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -2946,11 +3074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771581337858, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 4.619032
+      value: 4.619031
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771581337858, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_RotationOffsets.Array.data[0].z
-      value: 3.8872268
+      value: 3.8872263
       objectReference: {fileID: 0}
     - target: {fileID: 4637581771581337858, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -3020,6 +3148,48 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 936664162787386511, guid: 5629614472d76cc41861e7f8aa180543, type: 3}
   m_PrefabInstance: {fileID: 1925977295}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1925977300
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925977297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.76361
+  m_Height: 10.182415
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.7995291}
+--- !u!54 &1925977301
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925977297}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1925977302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925977297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60495b7e6f3345e4bb22bfca9378b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1965446000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,7 +5772,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: 0.75, y: -0.6455558, z: 0.054768562}
   m_RotationOffsets:
-  - {x: 4.619032, y: 40.156853, z: 3.8872268}
+  - {x: 4.619031, y: 40.156853, z: 3.8872263}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -6501,7 +6671,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: 0.9300003, y: -0.45629734, z: -1.6437483}
   m_RotationOffsets:
-  - {x: 3.012983, y: 60.137638, z: 5.230717}
+  - {x: 3.0129817, y: 60.137646, z: 5.2307177}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -6661,7 +6831,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.9299927, y: -0.45629734, z: -1.6437521}
   m_RotationOffsets:
-  - {x: 3.0129883, y: -60.13759, z: -5.2307153}
+  - {x: 3.0129864, y: -60.13759, z: -5.2307153}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -6876,7 +7046,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.75, y: -0.6455558, z: 0.054768562}
   m_RotationOffsets:
-  - {x: 4.619032, y: -40.156853, z: -3.8872268}
+  - {x: 4.619031, y: -40.156853, z: -3.8872263}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1

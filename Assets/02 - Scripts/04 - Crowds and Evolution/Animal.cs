@@ -21,7 +21,7 @@ public class Animal : MonoBehaviour
 
     [Header("Energy parameters")]
     public float maxEnergy = 10.0f;
-    public float lossEnergy = 0.1f;
+    public float lossEnergy = 0.0001f;
     public float gainEnergy = 10.0f;
     private float energy;
 
@@ -79,6 +79,7 @@ public class Animal : MonoBehaviour
                 goalSphere.GetComponent<Renderer>().material.color = Color.red;
                 goalSphere.transform.position = goal.position;
                 goalSphere.transform.parent = goal;
+                goalSphere.name = "goalSphere";
             // }
 
         }
@@ -162,6 +163,7 @@ public class Animal : MonoBehaviour
                 goalSphere.GetComponent<Renderer>().material.color = Color.red;
                 goalSphere.transform.position = goal.position;
                 goalSphere.transform.parent = goal;
+                goalSphere.name = "goalSphere";
             }
             goalSphere.transform.position = goal.position;
 

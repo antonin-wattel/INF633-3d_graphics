@@ -92,7 +92,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         foreach (Transform t in ts) {
             // print("t.gameObject.name: "+t.gameObject.name);
             if (t.gameObject.name == "goal"){
-                print("found goal (inside) in children !!");
+                // print("found goal (inside) in children !!");
                 //set the position of the goal
                 //now we need to unparent it to avoid problems 
                 goal = t;
@@ -144,7 +144,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
         foreach (Transform t in ts) {
             // print("t.gameObject.name: "+t.gameObject.name);
             if (t.gameObject.name == "goal"){
-                print("found goal (inside) in children !!");
+                // print("found goal (inside) in children !!");
                 //set the position of the goal
                 //now we need to unparent it to avoid problems 
                 goal = t;
@@ -259,7 +259,7 @@ public class QuadrupedProceduralMotion : MonoBehaviour
 
         // if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
         // {
-            print("hit the ground :)");
+            // print("hit the ground :)");
             float hips_offset = 1.0f;
             
             if (useraytracing == true){
