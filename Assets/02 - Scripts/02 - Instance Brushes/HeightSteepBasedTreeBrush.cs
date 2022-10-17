@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class HeightSteepBasedTreeBrush : InstanceBrush
 {
-    int radius = 30;
-    float height = 0.0f;
-    float steepness = 0.0f;
+    public float height_max = 30f;
+    public float steepness_max = 20f;
 
     public override void draw(float x, float z) {
         
-        Debug.Log("x = " + x + " z = " + z);
-        height = terrain.get(x, z);
-        steepness = terrain.getSteepness(x, z);
+        float height = terrain.get(x, z);
+        float steepness = terrain.getSteepness(x, z);
         Debug.Log($"Height = {height}, Steepness = {steepness}");
 
         // hardcoded values for now //
-        if (height < 10f && steepness < 20f) {
-            spawnObjectCustom(x, z, 0);
+        if ((height < height_max) && (steepness < steepness_max)) {
+            spawnObjectCustom(x, z, 1);
         }
         // else if (height < 20f && steepness < 30f) {
         //     spawnObjectCustom(x, z, 1);
         // }
         else{
             // do nothing
-            spawnObjectCustom(x, z, 1);
+            spawnObjectCustom(x, z, 0);
         }
 
         // some code for the distribution brush //
